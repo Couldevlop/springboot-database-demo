@@ -24,6 +24,13 @@ public class PersonJdbcDao {
 
     public Person findById(int id)
     {
-        return  jdbcTemplate.queryForObject("SELECT * FROM Person",new Object[]{id}, new BeanPropertyRowMapper<Person>(Person.class));
+        return  jdbcTemplate.queryForObject("SELECT * FROM Person WHERE id=?",
+                new Object[]{id}, new BeanPropertyRowMapper<Person>(Person.class));
+    }
+
+
+    public int deleteById(int id)
+    {
+        return  jdbcTemplate.update("DELETE FROM Person WHERE id=?", new Object[]{id});
     }
 }

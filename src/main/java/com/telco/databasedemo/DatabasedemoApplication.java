@@ -22,5 +22,7 @@ public class DatabasedemoApplication implements CommandLineRunner {
 	@Override
 	public void run(String... args) throws Exception {
 		logger.info(" voila", dao.findAll());
+        logger.info(" voila les details de la person 1", dao.findById(1));
+        logger.info(" Suppression  de la person 4", dao.findById(4));
 	}
 }
